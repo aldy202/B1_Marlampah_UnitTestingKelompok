@@ -1,0 +1,31 @@
+name: final_project_2023
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+
+dependencies:
+  cupertino_icons: ^1.0.2
+  get: 4.6.5
+  lottie: 2.2.0
+  firedart: ^0.9.7
+  hive_flutter: 1.1.0
+  introduction_screen: 3.1.4
+  intl: ^0.17.0
+  flutter:
+    sdk: flutter
+  dartdoc: ^6.2.0
+
+dev_dependencies:
+  flutter_lints: ^2.0.0
+  flutter_test:
+    sdk: flutter
+  mockito: ^5.4.1
+
+flutter:
+  assets:
+    - assets/logo/
+    - assets/lottie/
+    - assets/icons/
+  uses-material-design: true

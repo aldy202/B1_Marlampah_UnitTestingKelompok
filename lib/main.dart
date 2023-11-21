@@ -42,11 +42,8 @@ class MyApp extends StatelessWidget {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             title: "Application",
-            initialRoute: authC.isSkipIntro.isTrue
-                ? authC.isAuth.isTrue
-                    ? Routes.HOME
-                    : Routes.LOGIN_PAGE
-                : Routes.INTRODUCTION,
+            initialRoute:
+                authC.isSkipIntro.isTrue ? Routes.HOME : Routes.LOGIN_PAGE,
             getPages: AppPages.routes,
           );
         }

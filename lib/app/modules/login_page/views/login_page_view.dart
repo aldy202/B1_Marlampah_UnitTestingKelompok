@@ -13,7 +13,6 @@ class LoginPageView extends GetView<LoginPageController> {
   final _formKey = GlobalKey<FormState>();
   String email = '';
   String pass = '';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +35,7 @@ class LoginPageView extends GetView<LoginPageController> {
               child: Column(
                 children: [
                   TextFormField(
+                    key: Key('emailField'),
                     decoration: const InputDecoration(
                       hintText: 'Masukan Email kamu',
                       border: OutlineInputBorder(),
@@ -55,6 +55,7 @@ class LoginPageView extends GetView<LoginPageController> {
                     height: 30,
                   ),
                   TextFormField(
+                    key: Key('passwordField'),
                     decoration: const InputDecoration(
                       hintText: 'Masukan Password kamu',
                       border: OutlineInputBorder(),

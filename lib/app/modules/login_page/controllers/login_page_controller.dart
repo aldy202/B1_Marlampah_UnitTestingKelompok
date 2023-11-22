@@ -8,8 +8,10 @@ class LoginPageController extends GetxController {
   /// dengan menggunakan function [login], kamu akan diminta untuk
   /// memasukkan email dan password, setelah terverifikasi maka akan diarahkan ke page home.
   void login(String email, String password) async {
+    print('Login attempted with Email: $email, Password: $password');
     try {
       await FirebaseAuth.instance.signIn(email, password);
+      // ignore: unused_local_variable
       var user = await FirebaseAuth.instance.getUser();
       Get.offAllNamed(Routes.HOME);
     } catch (e) {

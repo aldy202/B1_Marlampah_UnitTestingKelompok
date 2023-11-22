@@ -14,6 +14,7 @@ class IntroductionView extends GetView<IntroductionController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: IntroductionScreen(
+        key: Key('berinteraksiDenganMudahPage'),
         pages: [
           PageViewModel(
             title: "Berinteraksi dengan mudah",

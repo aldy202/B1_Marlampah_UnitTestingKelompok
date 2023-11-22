@@ -23,9 +23,10 @@ class LoginPageView extends GetView<LoginPageController> {
               height: 30,
             ),
             Container(
+              key: const Key("animasi"),
               height: Get.height * 0.3,
               width: Get.width * 0.3,
-              child: Lottie.asset('assets/lottie/login.json'),
+              child: Image.asset('assets/icons/logo.png'),
             ),
             const SizedBox(
               height: 30,
@@ -35,7 +36,7 @@ class LoginPageView extends GetView<LoginPageController> {
               child: Column(
                 children: [
                   TextFormField(
-                    key: Key('emailField'),
+                    // key: const Key('email_field'),
                     decoration: const InputDecoration(
                       hintText: 'Masukan Email kamu',
                       border: OutlineInputBorder(),
@@ -55,7 +56,7 @@ class LoginPageView extends GetView<LoginPageController> {
                     height: 30,
                   ),
                   TextFormField(
-                    key: Key('passwordField'),
+                    // key: const Key('password_field'),
                     decoration: const InputDecoration(
                       hintText: 'Masukan Password kamu',
                       border: OutlineInputBorder(),
@@ -80,9 +81,16 @@ class LoginPageView extends GetView<LoginPageController> {
             ),
             Center(
               child: ElevatedButton(
+                // key: const Key("login_button"),
                 onPressed: () {
-                  _formKey.currentState?.save();
-                  LoginPageController().login(email, pass);
+                  if (_formKey.currentState?.validate() ?? false) {
+                    // Validasi berhasil, lakukan login.
+                    _formKey.currentState?.save();
+                    LoginPageController().login(email, pass);
+                  } else {
+                    _formKey.currentState?.save();
+                    LoginPageController().login(email, pass);
+                  }
                 },
                 child: const Text('Masuk'),
               ),

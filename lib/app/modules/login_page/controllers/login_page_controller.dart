@@ -14,6 +14,7 @@ class LoginPageController extends GetxController {
       // ignore: unused_local_variable
       var user = await FirebaseAuth.instance.getUser();
       Get.offAllNamed(Routes.HOME);
+      print('Login Done');
     } catch (e) {
       if (e.toString() == "AuthException: INVALID_EMAIL") {
         Get.showSnackbar(const GetSnackBar(

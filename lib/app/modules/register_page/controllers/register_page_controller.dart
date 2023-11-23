@@ -7,6 +7,7 @@ import '../../../routes/app_pages.dart';
 /// Kelas RegisterPageController berisi function untuk membantu dalam proses register
 class RegisterPageController extends GetxController {
   void daftar(String email, String password) async {
+    print('Register attempted with Email: $email, Password: $password');
     try {
       await FirebaseAuth.instance.signUp(email, password);
       Get.showSnackbar(const GetSnackBar(
@@ -15,6 +16,7 @@ class RegisterPageController extends GetxController {
         duration: Duration(seconds: 2),
       ));
       Get.offAll(() => LoginPageView());
+      print('Register Done');
     } catch (e) {
       if (e.toString() == "AuthException: INVALID_EMAIL") {
         Get.showSnackbar(const GetSnackBar(

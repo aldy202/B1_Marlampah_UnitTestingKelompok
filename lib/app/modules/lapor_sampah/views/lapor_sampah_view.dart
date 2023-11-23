@@ -23,7 +23,7 @@ class LaporSampahView extends GetView<LaporSampahController> {
               Container(
                 height: Get.height * 0.4,
                 width: Get.width * 0.4,
-                child: Lottie.asset('assets/lottie/report.json'),
+                child: Image.asset('assets/icons/lapor.png'),
               ),
       
               /// Mengambil Inputan dari user.

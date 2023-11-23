@@ -1,3 +1,4 @@
+import 'package:final_project_2023/app/modules/login_page/views/login_page_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -26,7 +27,7 @@ class RegisterPageView extends GetView<RegisterPageController> {
             Container(
               height: Get.height * 0.3,
               width: Get.width * 0.3,
-              child: Lottie.asset('assets/lottie/registration.json'),
+              child: Image.asset('assets/icons/register.png'),
             ),
             const SizedBox(
               height: 30,
@@ -85,7 +86,9 @@ class RegisterPageView extends GetView<RegisterPageController> {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    RegisterPageController().masuk();
+                  },
                   child: Text(
                     ' Masuk sekarang',
                     style: TextStyle(fontWeight: FontWeight.bold),

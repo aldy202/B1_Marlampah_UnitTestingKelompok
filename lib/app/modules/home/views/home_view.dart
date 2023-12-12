@@ -49,7 +49,7 @@ class HomeView extends GetView<HomeController> {
               /// Lottie merupakan sebuah widget yang digunakan untuk menampilkan animasi.
               height: Get.height * 0.4,
               width: Get.width * 0.4,
-              child: Image.asset('assets/icons/home.png'),
+              child: Lottie.asset('assets/lottie/hello_home.json'),
             ),
 
             /// Menampilkan widget CardHome.

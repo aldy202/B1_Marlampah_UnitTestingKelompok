@@ -27,7 +27,7 @@ class RegisterPageView extends GetView<RegisterPageController> {
             Container(
               height: Get.height * 0.3,
               width: Get.width * 0.3,
-              child: Image.asset('assets/icons/register.png'),
+              child: Lottie.asset('assets/lottie/registration.json'),
             ),
             const SizedBox(
               height: 30,

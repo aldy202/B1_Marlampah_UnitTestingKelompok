@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 import '../controllers/login_page_controller.dart';
 
@@ -31,7 +32,7 @@ class LoginPageView extends GetView<LoginPageController> {
                 key: const Key("animasi"),
                 height: Get.height * 0.3,
                 width: Get.width * 0.3,
-                child: Image.asset('assets/icons/logo.png'),
+                child: Lottie.asset('assets/lottie/login.json'),
               ),
               const SizedBox(
                 height: 30,

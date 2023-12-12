@@ -33,11 +33,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Application",
-      initialRoute: Routes.LOGIN_PAGE, // Ganti dengan rute untuk halaman login
-      getPages: AppPages.routes,
+    return FutureBuilder(
+      future: Future.delayed(Duration(seconds: 3)),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return SplashScreen();
+        } else {
+          return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: "Application",
+            initialRoute: authC.isSkipIntro.isTrue
+                ? authC.isAuth.isTrue
+                    ? Routes.HOME
+                    : Routes.LOGIN_PAGE
+                : Routes.INTRODUCTION,
+            getPages: AppPages.routes,
+          );
+        }
+      },
     );
   }
 }

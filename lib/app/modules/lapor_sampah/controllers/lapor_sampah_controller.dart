@@ -1,4 +1,3 @@
-import 'package:final_project_2023/app/modules/home/views/home_view.dart';
 import 'package:firedart/firedart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,7 +11,6 @@ class LaporSampahController extends GetxController {
 
   /// Fungsi ini digunakan untuk menyimpan data laporan sampah ke dalam database.
   void addReport(String nama, String alamat, String patokan) async {
-    print('Laporan Sampah attempted with nama: $nama, alamat: $alamat, patokan: $patokan');
     CollectionReference laporan = Firestore.instance.collection('laporan');
     try {
       await laporan.add({
@@ -20,21 +18,20 @@ class LaporSampahController extends GetxController {
         'alamat': alamat,
         'patokan': patokan,
       });
-      Get.offAll(() => HomeView());
+
       /// Jika berhasil menyimpan data laporan sampah ke dalam database, maka akan muncul dialog yang berisi pesan bahwa laporan berhasil disimpan.
-      // Get.defaultDialog(
-      //   title: 'Laporan Berhasil',
-      //   middleText: 'Terima kasih atas laporannya',
-      //   onConfirm: () {
-      //     nameC.clear();
-      //     alamatC.clear();
-      //     patokanC.clear();
-      //     Get.back();
-      //     Get.back();
-      //   },
-      //   textConfirm: 'OK',
-      // );
-      print('Laporan Sampah Done');
+      Get.defaultDialog(
+        title: 'Laporan Berhasil',
+        middleText: 'Terima kasih atas laporannya',
+        onConfirm: () {
+          nameC.clear();
+          alamatC.clear();
+          patokanC.clear();
+          Get.back();
+          Get.back();
+        },
+        textConfirm: 'OK',
+      );
 
       /// Jika gagal menyimpan data laporan sampah ke dalam database, maka akan muncul dialog yang berisi pesan bahwa laporan gagal disimpan.
     } catch (e) {

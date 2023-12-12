@@ -1,13 +1,10 @@
 import 'package:final_project_2023/app/utils/no_data.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 import '../controllers/riwayat_lapor_controller.dart';
 
-///kelas RiwayatLaporView berisi widget untuk menampilkan riwayat lapor page.
-///halaman ini akan menunjukan user mengenai riwayat lapor yang telah dilakukan.
 class RiwayatLaporView extends GetView<RiwayatLaporController> {
   const RiwayatLaporView({Key? key}) : super(key: key);
 
@@ -25,13 +22,19 @@ class RiwayatLaporView extends GetView<RiwayatLaporController> {
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               if (snapshot.hasData) {
+                // Menyusun daftar laporan berdasarkan nama secara alfabetis
+                List sortedReports = snapshot.data!.cast().toList();
+                sortedReports
+                    .sort((a, b) => a.map['nama'].compareTo(b.map['nama']));
+
                 return ListView.builder(
-                  itemCount: snapshot.data!.length,
+                  itemCount: sortedReports.length,
                   itemBuilder: (context, index) => Card(
                     child: ListTile(
-                      title: Text('${snapshot.data![index].map['nama']}'),
+                      title: Text('${sortedReports[index].map['nama']}'),
                       subtitle: Text(
-                          'Alamat : ${snapshot.data![index].map['alamat']} \nPatokan : ${snapshot.data![index].map['patokan']}'),
+                        'Alamat : ${sortedReports[index].map['alamat']} \nPatokan : ${sortedReports[index].map['patokan']}',
+                      ),
                     ),
                   ),
                 );
@@ -52,5 +55,3 @@ class RiwayatLaporView extends GetView<RiwayatLaporController> {
     );
   }
 }
-
-
